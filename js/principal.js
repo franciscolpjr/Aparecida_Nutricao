@@ -56,6 +56,8 @@ for(var i=0;i<pacientes.length;i++){
 		console.log("Verificar Peso");
 		testePeso=false;
 		paciente.querySelector(".info-imc").textContent = "Peso Inválido";
+		//paciente.style.backgroundColor = "lightcoral";
+		paciente.classList.add("valor-invalido");
 	}
 
 	var testeAltura=true;
@@ -63,6 +65,8 @@ for(var i=0;i<pacientes.length;i++){
 		console.log("Verificar Altura");
 		testeAltura=false;
 		paciente.querySelector(".info-imc").textContent = "Altura Inválida";
+		//paciente.style.backgroundColor = "lightcoral";
+		paciente.classList.add("valor-invalido");
 	}
 
 	if(testePeso && testeAltura){
