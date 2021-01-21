@@ -9,6 +9,10 @@ tabela.forEach(function(paciente){
 		var alvoDoEvento = event.target;
 		var paiDoAlvo = alvoDoEvento.parentNode;
 
-		paiDoAlvo.remove();
+		paiDoAlvo.classList.add("fadeOut"); //class fadeOut esmaece a linha em 500ms
+		setTimeout(function(){
+			event.target.parentNode.remove();
+		},500); //função setTimeout fala para o browser esperar 500ms (enquanto a linha esmaece) depois executa a função remove.
+		
 	});
 });
