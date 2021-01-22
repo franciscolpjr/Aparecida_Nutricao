@@ -17,9 +17,6 @@ botaoAddPaciente.addEventListener("click",function(event){
 	console.log(paciente.gordura);
 	console.log(paciente.imc);
 
-	//Monta TR
-	var pacienteTr = montaTr(paciente);
-
 	//Valida Paciente
 	var erros = validaPaciente(paciente);
 	if(erros.length==0){
@@ -27,9 +24,8 @@ botaoAddPaciente.addEventListener("click",function(event){
 		//Limpa Mensagens de erros (erros[0])
 		gravaMensagensDeErro(erros);
 
-		//Insere pacienteTr na tabela existente
-		var tabela = buscaElemento("#tabela-pacientes");
-		tabela.appendChild(pacienteTr);
+		//insere na tabela
+		addPacienteNaTabela(paciente);
 
 		//Limpa formulário
 		formAdd.reset();	
@@ -43,6 +39,14 @@ botaoAddPaciente.addEventListener("click",function(event){
 	
 
 });
+
+function addPacienteNaTabela(paciente){
+	//Monta TR
+	var pacienteTr = montaTr(paciente);
+	//Insere pacienteTr na tabela existente
+	var tabela = buscaElemento("#tabela-pacientes");
+	tabela.appendChild(pacienteTr);
+}
 
 function buscaElemento(seletor){
 	return document.querySelector(seletor);
@@ -67,7 +71,7 @@ function montaTr(paciente){
 
 	var nomeTd = montaTd(paciente.nome,"info-nome");
 	var pesoTd = montaTd(paciente.peso,"info-peso");
-	var alturaTd = montaTd(paciente.altura.replace(/,/g,'.'),"info-altura");
+	var alturaTd = montaTd(paciente.altura,"info-altura");
 	var gorduraTd = montaTd(paciente.gordura,"info-gordura");
 	var imcTd = montaTd(paciente.imc,"info-imc");
 

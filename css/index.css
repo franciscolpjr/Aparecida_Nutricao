@@ -152,7 +152,9 @@ button[disabled=disabled], button:disabled {
 	transition: 0.5s;
 }
 
-#filtrar-paciente{
+.filtrar-paciente{
+	display: inline;
+	font-weight: bold;
 	width: 200px;
 	height: 2em;
 	margin: 0 0 1em 0;
